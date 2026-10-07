@@ -1,9 +1,3 @@
-function Agenda() {
-
-    return (
-        <h1>Agenda</h1>
-    );
-
-}
-
+import Icon from "../components/Icon";
+function Agenda(){return <main><section className="page-hero"><div className="contenedor"><span className="eyebrow">AGENDA TU ATENCIÓN</span><h1>Reserva un espacio para ti</h1><p>Completa tus datos y nos pondremos en contacto para confirmar disponibilidad.</p></div></section><section className="section"><div className="contenedor agenda-grid"><form className="form-card" onSubmit={(e)=>e.preventDefault()}><div className="field-row"><label>Nombre completo<input type="text" placeholder="Tu nombre"/></label><label>Correo electrónico<input type="email" placeholder="tu@correo.com"/></label></div><div className="field-row"><label>Teléfono<input type="tel" placeholder="+56 9 ..."/></label><label>Especialidad<select defaultValue=""><option value="" disabled>Selecciona una opción</option><option>Psicología</option><option>Terapias integrativas</option><option>Bienestar corporal</option><option>Acompañamiento familiar</option></select></label></div><div className="field-row"><label>Fecha preferida<input type="date"/></label><label>Modalidad<select><option>Presencial</option><option>Online</option></select></label></div><label>Cuéntanos brevemente<textarea rows="4" placeholder="¿Cómo podemos ayudarte?"></textarea></label><button className="btn" type="submit"><Icon name="calendar" size={19}/> Solicitar hora</button><small className="privacy"><Icon name="check" size={15}/> Tu información será tratada de forma confidencial.</small></form><aside className="agenda-info"><span className="icon-chip large"><Icon name="heart" size={28}/></span><h2>Estamos para orientarte</h2><p>Si no sabes qué especialidad elegir, no te preocupes. Cuéntanos qué necesitas y te ayudaremos a encontrar la atención más adecuada.</p><div className="info-line"><Icon name="clock"/><div><strong>Horario de atención</strong><span>Lunes a viernes · 09:00 a 19:00</span></div></div><div className="info-line"><Icon name="map"/><div><strong>Ubicación</strong><span>Caupolicán 220, Los Vilos</span></div></div></aside></div></section></main>}
 export default Agenda;

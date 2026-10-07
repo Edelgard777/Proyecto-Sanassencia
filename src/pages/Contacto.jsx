@@ -1,9 +1,3 @@
-function Contacto() {
-
-    return (
-        <h1>Contacto</h1>
-    );
-
-}
-
+import Icon from "../components/Icon";
+function Contacto(){return <main><section className="page-hero"><div className="contenedor"><span className="eyebrow">HABLEMOS</span><h1>Estamos cerca de ti</h1><p>Escríbenos si tienes dudas sobre nuestras atenciones, profesionales o proceso de agendamiento.</p></div></section><section className="section"><div className="contenedor contact-grid"><div className="contact-cards"><article><span className="icon-chip"><Icon name="map"/></span><h3>Visítanos</h3><p>Caupolicán 220, Los Vilos</p></article><article><span className="icon-chip"><Icon name="phone"/></span><h3>Llámanos</h3><p>+56 9 1234 5678</p></article><article><span className="icon-chip"><Icon name="mail"/></span><h3>Escríbenos</h3><p>contacto@sanaesencia.cl</p></article><article><span className="icon-chip"><Icon name="instagram"/></span><h3>Síguenos</h3><p>@sanaesencia</p></article></div><form className="form-card" onSubmit={(e)=>e.preventDefault()}><h2>Envíanos un mensaje</h2><label>Nombre<input placeholder="Tu nombre"/></label><label>Correo<input type="email" placeholder="tu@correo.com"/></label><label>Mensaje<textarea rows="5" placeholder="Escribe tu consulta"></textarea></label><button className="btn" type="submit">Enviar mensaje <Icon name="arrow" size={18}/></button></form></div></section></main>}
 export default Contacto;

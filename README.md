@@ -1,16 +1,24 @@
-# React + Vite
+# SanaEsencia — Sitio web React
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Rediseño visual inspirado en la interfaz móvil de SanaEsencia.
 
-Currently, two official plugins are available:
+## Paleta principal
+- Verde bosque: `#2F5849`
+- Verde salvia: `#7F9275`
+- Salvia claro: `#EDF1E7`
+- Crema: `#F8F6F0`
+- Blanco cálido: `#FFFEFA`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Ejecutar
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Estructura
+- `src/components`: Navbar, Footer e iconos SVG.
+- `src/pages`: Inicio, Especialidades, Profesionales, Agenda y Contacto.
+- `src/data`: datos reutilizables de especialidades y profesionales.
+- `src/styles/style.css`: sistema visual completo y responsive.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Los datos de profesionales, correo y teléfono son demostrativos y deben reemplazarse por los datos reales del centro.

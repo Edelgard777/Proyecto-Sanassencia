@@ -1,9 +1,5 @@
-function Profesionales() {
-
-    return (
-        <h1>Profesionales</h1>
-    );
-
-}
-
+import { profesionales } from "../data/datos";
+import Icon from "../components/Icon";
+import { Link } from "react-router-dom";
+function Profesionales(){return <main><section className="page-hero"><div className="contenedor"><span className="eyebrow">NUESTRO EQUIPO</span><h1>Personas que acompañan personas</h1><p>Profesionales comprometidos con ofrecerte un espacio de escucha, respeto y confianza.</p></div></section><section className="section"><div className="contenedor pro-page-grid">{profesionales.map((p,i)=><article className="pro-page-card" key={p.nombre}><div className="pro-photo"><span>{p.iniciales}</span><div className="pro-leaf"><Icon name="leaf"/></div></div><div className="pro-card-body"><span className="eyebrow">PROFESIONAL 0{i+1}</span><h2>{p.nombre}</h2><strong>{p.area}</strong><p>{p.detalle}. Atención enfocada en construir un proceso cercano, seguro y adaptado a cada persona.</p><Link to="/agenda">Agendar atención <Icon name="arrow" size={17}/></Link></div></article>)}</div></section></main>}
 export default Profesionales;
