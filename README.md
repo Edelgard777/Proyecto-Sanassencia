@@ -1,13 +1,16 @@
-# SanaEsencia — Sitio web React
+# SanaEsencia - React + Vite
 
-Rediseño visual inspirado en la interfaz móvil de SanaEsencia.
+Proyecto web responsive para Centro Integrativo SanaEsencia.
 
-## Paleta principal
-- Verde bosque: `#2F5849`
-- Verde salvia: `#7F9275`
-- Salvia claro: `#EDF1E7`
-- Crema: `#F8F6F0`
-- Blanco cálido: `#FFFEFA`
+## Incluye
+- Inicio con carrusel automático de 3 imágenes, controles e indicadores.
+- Especialidades con información desplegable y acceso directo a agenda.
+- Profesionales con buscador por nombre o área.
+- Agenda con validaciones, fecha mínima y confirmación visual.
+- Contacto con validaciones y confirmación visual.
+- Navbar responsive con menú móvil.
+- Footer con navegación completa.
+- Página 404 y retorno automático al inicio de cada página al navegar.
 
 ## Ejecutar
 ```bash
@@ -15,10 +18,5 @@ npm install
 npm run dev
 ```
 
-## Estructura
-- `src/components`: Navbar, Footer e iconos SVG.
-- `src/pages`: Inicio, Especialidades, Profesionales, Agenda y Contacto.
-- `src/data`: datos reutilizables de especialidades y profesionales.
-- `src/styles/style.css`: sistema visual completo y responsive.
-
-Los datos de profesionales, correo y teléfono son demostrativos y deben reemplazarse por los datos reales del centro.
+## Importante
+Los formularios están funcionales a nivel de interfaz y validación en React, pero todavía no envían información a una base de datos o correo porque el proyecto no tiene backend conectado. Al integrar un backend se puede reemplazar la confirmación local por un envío real.
