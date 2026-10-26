@@ -1,11 +1,14 @@
 import { useState } from "react";
 import Icon from "../components/Icon";
+import { crear } from "../data/almacen";
 
 function Contacto() {
   const [enviado, setEnviado] = useState(false);
   const enviar = (e) => {
     e.preventDefault();
     if (!e.currentTarget.checkValidity()) return;
+    const f = new FormData(e.currentTarget);
+    crear("mensajes", Object.fromEntries(f.entries()));
     setEnviado(true);
     e.currentTarget.reset();
   };
@@ -28,7 +31,7 @@ function Contacto() {
           <label>Asunto<select name="asunto" defaultValue="Consulta general"><option>Consulta general</option><option>Especialidades</option><option>Profesionales</option><option>Agendamiento</option></select></label>
           <label>Mensaje<textarea name="mensaje" rows="5" placeholder="Escribe tu consulta" required minLength="10"></textarea></label>
           <button className="btn" type="submit">Enviar mensaje <Icon name="arrow" size={18} /></button>
-          {enviado && <div className="form-success" role="status"><Icon name="check" size={18} /><span><strong>Mensaje preparado correctamente.</strong> Cuando conectemos el backend, este formulario podrá enviarlo al centro.</span></div>}
+          {enviado && <div className="form-success" role="status"><Icon name="check" size={18} /><span><strong>Mensaje guardado.</strong> Tu consulta quedó registrada localmente en este navegador; aún no se envía al centro.</span></div>}
         </form>
       </div></section>
     </main>
