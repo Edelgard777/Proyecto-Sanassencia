@@ -8,33 +8,31 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "karma start karma.conf.js --single-run",
-    "test:watch": "karma start karma.conf.js"
+    "test": "karma start karma.conf.cjs --single-run",
+    "test:watch": "karma start karma.conf.cjs"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.4"
+    "react-router-dom": "^7.18.4",
+    "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "@babel/preset-react": "^7.24.7",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
-    "babel-loader": "^9.2.1",
-    "babel-plugin-istanbul": "^7.0.0",
-    "jasmine-core": "^5.1.2",
-    "karma": "^6.4.4",
-    "karma-chrome-launcher": "^3.2.0",
-    "karma-coverage": "^2.2.1",
-    "karma-jasmine": "^5.1.0",
-    "karma-spec-reporter": "^0.0.36",
-    "karma-webpack": "^5.0.1",
     "oxlint": "^1.81.0",
     "vite": "^8.3.0",
-    "webpack": "^5.93.0"
+    "jasmine-core": "^5.10.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-webpack": "^5.0.1",
+    "webpack": "^5.101.0",
+    "babel-loader": "^10.0.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-react": "^7.28.0",
+    "@testing-library/react": "^16.3.0"
   }
 }
