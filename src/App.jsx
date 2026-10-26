@@ -1,40 +1,6 @@
-import { useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Inicio from "./pages/Inicio";
-import Especialidades from "./pages/Especialidades";
-import Profesionales from "./pages/Profesionales";
-import Agenda from "./pages/Agenda";
-import Contacto from "./pages/Contacto";
-import Icon from "./components/Icon";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [pathname]);
-  return null;
-}
-
-function NoEncontrada() {
-  return <main className="not-found"><div className="contenedor"><span className="eyebrow">404</span><h1>Página no encontrada</h1><p>La dirección que abriste no existe.</p><Link className="btn" to="/"><Icon name="arrow" size={18} /> Volver al inicio</Link></div></main>;
-}
-
-function App() {
-  return (
-    <>
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/especialidades" element={<Especialidades />} />
-        <Route path="/profesionales" element={<Profesionales />} />
-        <Route path="/agenda" element={<Agenda />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="*" element={<NoEncontrada />} />
-      </Routes>
-      <Footer />
-    </>
-  );
-}
-
-export default App;
+import {useEffect} from 'react';import {Routes,Route,Link,useLocation} from 'react-router-dom';
+import Navbar from './components/Navbar';import Footer from './components/Footer';
+import Inicio from './pages/Inicio';import Especialidades from './pages/Especialidades';import Profesionales from './pages/Profesionales';import Contacto from './pages/Contacto';
+import Catalogo from './pages/Catalogo';import Reservas from './pages/Reservas';import Checkout from './pages/Checkout';import Resultado from './pages/Resultado';import MisCitas from './pages/MisCitas';import MiCuenta from './pages/MiCuenta';import Acceso from './pages/Acceso';import Administracion from './pages/Administracion';import {SanaProvider} from './context/SanaContext';
+function Scroll(){const {pathname}=useLocation();useEffect(()=>{window.scrollTo(0,0)},[pathname]);return null}
+export default function App(){return <SanaProvider><Scroll/><Navbar/><Routes><Route path="/" element={<Inicio/>}/><Route path="/especialidades" element={<Especialidades/>}/><Route path="/profesionales" element={<Profesionales/>}/><Route path="/contacto" element={<Contacto/>}/><Route path="/agenda" element={<Reservas/>}/><Route path="/catalogo" element={<Catalogo/>}/><Route path="/catalogo/:id" element={<Catalogo/>}/><Route path="/ofertas" element={<Catalogo ofertas/>}/><Route path="/checkout/:id" element={<Checkout/>}/><Route path="/resultado/:id" element={<Resultado/>}/><Route path="/registro" element={<Acceso registro/>}/><Route path="/ingresar" element={<Acceso/>}/><Route path="/mi-cuenta" element={<MiCuenta/>}/><Route path="/mis-citas" element={<MisCitas/>}/><Route path="/administracion" element={<Administracion/>}/><Route path="*" element={<main className="section contenedor"><h1>Página no encontrada</h1><Link to="/" className="btn">Volver al inicio</Link></main>}/></Routes><Footer/></SanaProvider>}
