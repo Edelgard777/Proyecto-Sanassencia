@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "karma start karma.conf.cjs --single-run",
-    "test:watch": "karma start karma.conf.cjs"
+    "test:watch": "karma start karma.conf.cjs",
+    "test:coverage": "karma start karma.conf.cjs --single-run"
   },
   "dependencies": {
     "react": "^19.2.8",
@@ -33,6 +34,9 @@
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "@babel/preset-react": "^7.28.0",
-    "@testing-library/react": "^16.3.0"
+    "@testing-library/react": "^16.3.0",
+    "karma-coverage": "^2.2.1",
+    "babel-plugin-istanbul": "^7.0.0",
+    "null-loader": "^4.0.1"
   }
 }
