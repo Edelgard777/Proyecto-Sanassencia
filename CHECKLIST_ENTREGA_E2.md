@@ -2,11 +2,11 @@
 
 - [x] Código React/Vite y navegación implementados.
 - [x] Fuente de datos simulada, CRUD y persistencia local.
-- [x] Jasmine/Karma: 18 pruebas aprobadas (consola del 26-10-2026).
+- [x] Jasmine/Karma: 20 pruebas aprobadas (consola del 26-10-2026).
 - [x] Informe de cobertura actualizado con cifras verificadas por la ejecución del usuario.
 - [x] ERS V2 revisado y trazabilidad de requisitos agregada.
 - [ ] Capturas del terminal y del reporte `coverage/html/index.html`.
-- [ ] Capturas y bitácora de pruebas manuales (M01–M09).
+- [ ] Capturas y bitácora de pruebas manuales (M01–M09); el archivo BITACORA_PRUEBAS_MANUALES.md sirve de plantilla.
 - [ ] Comprobar responsive en móvil, tablet y escritorio.
 - [ ] Decidir con el docente si blog y ofertas deben estar presentes como vistas propias.
 - [ ] Aclarar exigencia de integración backend/frontend (no implementada).

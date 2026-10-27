@@ -1,6 +1,6 @@
 # Informe de pruebas y cobertura — SanaEsencia Web (Evaluación 2)
 
-**Fecha de ejecución reportada:** 26 de octubre de 2026, 23:07 (hora local).  
+**Fecha de ejecución reportada:** 26 de octubre de 2026, 23:52 (hora local).  
 **Origen de los resultados:** salida de consola de Windows proporcionada por el integrante del equipo.  
 **Comando utilizado:** `npm.cmd test -- --coverage`.
 
@@ -16,28 +16,30 @@ Verificar las reglas de negocio básicas de SanaEsencia y comportamientos de la 
 |---|---:|
 | Compilación Webpack | Exitosa |
 | Navegador | Chrome Headless 156.0.0.0 (Windows 10) |
-| Pruebas ejecutadas | 18 |
-| Pruebas aprobadas | 18 |
+| Pruebas ejecutadas | 20 |
+| Pruebas aprobadas | 20 |
 | Pruebas fallidas | 0 |
-| Statements | **72,17 % (83/115)** |
-| Branches | **69,41 % (59/85)** |
-| Functions | **68,18 % (30/44)** |
-| Lines | **91,42 % (32/35)** |
+| Statements | **72,00 % (126/175)** |
+| Branches | **70,78 % (126/178)** |
+| Functions | **68,11 % (47/69)** |
+| Lines | **91,89 % (34/37)** |
 
-Registro textual de la ejecución: `Executed 18 of 18 SUCCESS` y `TOTAL: 18 SUCCESS`.
+Registro textual de la ejecución: `Executed 20 of 20 SUCCESS` y `TOTAL: 20 SUCCESS`.
 
 ### Comparativa con ejecución previa
 
-| Métrica | Ejecución anterior (9/12) | Actual (18/18) | Cambio |
+| Métrica | Versión anterior (18/18) | Actual (20/20) | Cambio |
 |---|---:|---:|---:|
-| Statements | 38,26 % | 72,17 % | +33,91 puntos porcentuales |
-| Branches | 18,82 % | 69,41 % | +50,59 pp |
-| Functions | 36,36 % | 68,18 % | +31,82 pp |
-| Lines | 68,57 % | 91,42 % | +22,85 pp |
+| Statements | 72,17 % | 72,00 % | −0,17 pp |
+| Branches | 69,41 % | 70,78 % | +1,37 pp |
+| Functions | 68,18 % | 68,11 % | −0,07 pp |
+| Lines | 91,42 % | 91,89 % | +0,47 pp |
+
+La ampliación de los archivos instrumentados modificó los denominadores. Pequeñas bajas no implican una regresión de funcionamiento.
 
 ## 3. Casos automatizados implementados
 
-La suite contiene 18 pruebas según el código de `tests/validaciones.spec.js` y `tests/componentes.spec.jsx`:
+La suite contiene 20 pruebas según el código de `tests/validaciones.spec.js`, `tests/componentes.spec.jsx` y `tests/administracion.spec.jsx`:
 
 | Código | Comportamiento cubierto | Archivo |
 |---|---|---|
@@ -59,6 +61,8 @@ La suite contiene 18 pruebas según el código de `tests/validaciones.spec.js` y
 | T16 | Mostrar/ocultar mensaje condicional de búsqueda sin resultados | componentes.spec.jsx |
 | T17 | Props de etiqueta y callback en botón **definido dentro del test** | componentes.spec.jsx |
 | T18 | Mostrar error de inicio de sesión ante credenciales inválidas | componentes.spec.jsx |
+| T19 | Crear especialidad desde administración y comprobar tabla actualizada | administracion.spec.jsx |
+| T20 | Crear profesional vinculado a especialidad y comprobar tabla actualizada | administracion.spec.jsx |
 
 **Limitación de T17:** demuestra uso de props y `onClick` en React, pero no prueba un componente reutilizable real del proyecto. Se recomienda extraer un `Boton` de producción o realizar la prueba sobre un botón existente.
 
@@ -71,7 +75,7 @@ La suite contiene 18 pruebas según el código de `tests/validaciones.spec.js` y
 | Props y callback | T17 | Parcial: componente de prueba, no componente del producto |
 | State, entrada de texto | T14, T15 | Evidenciado |
 | Eventos, clic | T17, T18 | Evidenciado |
-| CRUD y lógica | T06–T12 | Evidenciado |
+| CRUD y lógica | T06–T12 y T19–T20 | Evidenciado (altas administrativas automáticas) |
 
 ## 5. Pruebas manuales pendientes de registrar
 
@@ -83,20 +87,20 @@ La suite contiene 18 pruebas según el código de `tests/validaciones.spec.js` y
 | M04 | Colisión | Intentar misma fecha/hora/profesional | Rechaza duplicado | Pendiente |
 | M05 | Cancelar cita | Cancelar una cita existente | Actualiza estado | Pendiente |
 | M06 | Checkout | Simular pago exitoso y rechazado | Muestra ambas pantallas de resultado | Pendiente |
-| M07 | Administrador | Crear, editar y eliminar servicio | Catálogo cambia sin recargar | Pendiente |
+| M07 | Administrador | Crear, editar y eliminar servicio y profesional | Catálogo y listas cambian sin recargar | Pendiente (T19–T20 cubren creación automática, no todos los flujos manuales) |
 | M08 | Responsive | Probar 375px, 768px y 1366px | Sin desbordes ni controles inaccesibles | Pendiente |
 | M09 | Persistencia | Recargar página y recuperar cita | Datos se conservan en navegador | Pendiente |
 
 ## 6. Evidencias para el informe final
 
-- Captura de consola con `TOTAL: 18 SUCCESS` y resumen de cobertura.
+- Captura de consola con `TOTAL: 20 SUCCESS` y resumen de cobertura.
 - Captura de `coverage/html/index.html` y detalle de archivos cubiertos.
 - Capturas de los flujos manuales M01–M09 con fecha, evaluador y observaciones.
 - Enlace al commit de GitHub donde constan los archivos de pruebas y la configuración de Karma.
 
 ## 7. Análisis de calidad y acciones siguientes
 
-Las 18 pruebas de la suite pasan; no hay defectos abiertos **dentro de esos casos concretos**. Los resultados no certifican integridad de sesión, flujo administrativo completo, pasarela real ni sincronización multiusuario. La cobertura de ramas (69,41 %) y de funciones (68,18 %) revela oportunidades de ampliar casos límite. Se recomienda probar primero permisos administrativos, reserva/cancelación y errores de pago. No se fija un umbral artificial: la pauta no establece mínimo porcentual.
+Las 20 pruebas de la suite pasan; no hay defectos abiertos **dentro de esos casos concretos**. Los resultados no certifican integridad de sesión, flujo administrativo completo, pasarela real ni sincronización multiusuario. La cobertura de ramas (69,41 %) y de funciones (68,18 %) revela oportunidades de ampliar casos límite. Se recomienda probar primero permisos administrativos, reserva/cancelación y errores de pago. No se fija un umbral artificial: la pauta no establece mínimo porcentual.
 
 ## 8. Reproducción
 
@@ -106,3 +110,7 @@ npm.cmd test -- --coverage
 ```
 
 Abrir `coverage/html/index.html` para el informe HTML. Opcional: `npm.cmd run test:coverage`, si la entrada está definida en `package.json`.
+
+## 9. Resultado más reciente aportado por el equipo
+
+La ejecución local comunicada el 26-10-2026 a las 23:52 informó `webpack ... compiled successfully`, `Executed 20 of 20 SUCCESS` y `TOTAL: 20 SUCCESS`. No se ha adjuntado todavía una imagen del informe HTML ni evidencia de las pruebas manuales. **No se declara ejecución independiente en este entorno.**

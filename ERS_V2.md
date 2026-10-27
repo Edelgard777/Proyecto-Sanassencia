@@ -47,7 +47,7 @@ Sin backend ni pasarela real, no hay sincronización con Android, autenticación
 | Bootstrap responsive | CSS + Bootstrap | M08 pendiente |
 | Vistas adicionales | Catálogo, reserva, checkout, resultados y administración | M03, M06, M07 pendientes |
 | Búsqueda / formularios | Catálogo y Acceso | T14–T16, T18 |
-| Jasmine + Karma | `karma.conf.cjs`, `tests/` | 18/18 aprobadas según consola del usuario |
+| Jasmine + Karma | `karma.conf.cjs`, `tests/` | 20/20 aprobadas según consola del usuario |
 | Renderizado, props, estado, eventos | `tests/componentes.spec.jsx` | Props sobre componente real todavía mejorable |
 | Presentación backend/frontend | No existe integración backend real | Acordar con docente alcance o implementarla |
 
@@ -57,4 +57,4 @@ El documento docente usa *productos, carrito, compra y envío* como caso guía. 
 
 ## Estado de verificación (26-10-2026)
 
-Se reportó ejecución exitosa de 18 de 18 tests. Las verificaciones manuales de interfaz, responsive, administración y checkout aún necesitan evidencias. El backend no está conectado; `localStorage` es una simulación académica, no una base de datos compartida con Android. Las credenciales guardadas localmente carecen de seguridad adecuada para producción.
+Se reportó ejecución exitosa de 20 de 20 tests, incluidas dos pruebas de creación administrativa de especialidades y profesionales. Las verificaciones manuales de interfaz, responsive, administración y checkout aún necesitan evidencias. El backend no está conectado; `localStorage` es una simulación académica, no una base de datos compartida con Android. Las credenciales guardadas localmente carecen de seguridad adecuada para producción.
