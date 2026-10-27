@@ -1,62 +1,108 @@
-# Plan de pruebas y cobertura — SanaEsencia V2
+# Informe de pruebas y cobertura — SanaEsencia Web (Evaluación 2)
 
-## Herramientas
+**Fecha de ejecución reportada:** 26 de octubre de 2026, 23:07 (hora local).  
+**Origen de los resultados:** salida de consola de Windows proporcionada por el integrante del equipo.  
+**Comando utilizado:** `npm.cmd test -- --coverage`.
 
-- Jasmine: especificaciones y aserciones.
-- Karma + ChromeHeadless: ejecución en navegador.
-- Webpack + Babel: transpilación de archivos `.js` y `.jsx`.
-- babel-plugin-istanbul + karma-coverage: instrumentación y reportes de cobertura.
-- React Testing Library: renderizado y eventos sobre componentes.
+## 1. Propósito y alcance
 
-## Ejecutar
+Verificar las reglas de negocio básicas de SanaEsencia y comportamientos de la interfaz React con Jasmine, Karma, ChromeHeadless y React Testing Library. El reporte de cobertura se produce con `babel-plugin-istanbul` y `karma-coverage`.
 
-```powershell
-npm.cmd install
-npm.cmd test --coverage
-```
+**Límite de la evidencia:** la ejecución fue realizada por el usuario en su computador; no se adjuntó todavía la captura del reporte HTML ni una ejecución independiente. Los porcentajes representan exclusivamente los módulos instrumentados e importados por la suite. No implican que toda la aplicación esté cubierta.
 
-En PowerShell con ejecución de scripts habilitada también se puede usar `npm install` y `npm test --coverage`. `npm test --coverage` también es compatible con la configuración del proyecto. Para ejecutar sin cobertura: `npm.cmd test`.
+## 2. Resultado verificado por la consola
 
-Se generan `coverage/html/index.html` y `coverage/lcov.info`. **La cobertura solo incluye código importado por las pruebas**, por lo que es posible tener porcentajes altos en lógica de validación sin que todas las pantallas hayan sido probadas. No se establece un porcentaje mínimo inventado.
+| Indicador | Resultado |
+|---|---:|
+| Compilación Webpack | Exitosa |
+| Navegador | Chrome Headless 156.0.0.0 (Windows 10) |
+| Pruebas ejecutadas | 18 |
+| Pruebas aprobadas | 18 |
+| Pruebas fallidas | 0 |
+| Statements | **72,17 % (83/115)** |
+| Branches | **69,41 % (59/85)** |
+| Functions | **68,18 % (30/44)** |
+| Lines | **91,42 % (32/35)** |
 
-## Casos automatizados
+Registro textual de la ejecución: `Executed 18 of 18 SUCCESS` y `TOTAL: 18 SUCCESS`.
 
-| Capa | Caso | Archivo |
+### Comparativa con ejecución previa
+
+| Métrica | Ejecución anterior (9/12) | Actual (18/18) | Cambio |
+|---|---:|---:|---:|
+| Statements | 38,26 % | 72,17 % | +33,91 puntos porcentuales |
+| Branches | 18,82 % | 69,41 % | +50,59 pp |
+| Functions | 36,36 % | 68,18 % | +31,82 pp |
+| Lines | 68,57 % | 91,42 % | +22,85 pp |
+
+## 3. Casos automatizados implementados
+
+La suite contiene 18 pruebas según el código de `tests/validaciones.spec.js` y `tests/componentes.spec.jsx`:
+
+| Código | Comportamiento cubierto | Archivo |
 |---|---|---|
-| Validación | Nombre obligatorio | `tests/validaciones.spec.js` |
-| Validación | Clave segura (8 caracteres, mayúscula y especial) | `tests/validaciones.spec.js` |
-| Agenda | Impedir choque del profesional en el mismo horario | `tests/validaciones.spec.js` |
-| Fechas | Fecha local y horarios disponibles | `tests/validaciones.spec.js` |
-| CRUD | Crear, leer, actualizar y eliminar mensajes | `tests/validaciones.spec.js` |
-| Datos | Rechazar colecciones inválidas | `tests/validaciones.spec.js` |
-| Renderizado | Mostrar catálogo y especialidades | `tests/componentes.spec.jsx` |
-| Eventos/state | Filtrar el catálogo | `tests/componentes.spec.jsx` |
-| Formulario | Validar contraseña por cambios de estado | `tests/componentes.spec.jsx` |
+| T01 | Nombre obligatorio / nombre con contenido | validaciones.spec.js |
+| T02 | Contraseña: longitud, mayúscula y carácter especial | validaciones.spec.js |
+| T03 | Rechazo de horario duplicado del profesional | validaciones.spec.js |
+| T04 | Lista de horarios definida | validaciones.spec.js |
+| T05 | Generación de fecha local | validaciones.spec.js |
+| T06 | Crear y leer mensajes con persistencia local | validaciones.spec.js |
+| T07 | Actualizar registro | validaciones.spec.js |
+| T08 | Eliminar registro | validaciones.spec.js |
+| T09 | Rechazar colección de datos inválida | validaciones.spec.js |
+| T10 | Permitir nueva reserva si la anterior está cancelada | validaciones.spec.js |
+| T11 | Exclusión de la misma cita al modificar horario | validaciones.spec.js |
+| T12 | Mantener ID original al actualizar | validaciones.spec.js |
+| T13 | Renderizar especialidades | componentes.spec.jsx |
+| T14 | Buscar y filtrar especialidades | componentes.spec.jsx |
+| T15 | Cambios visuales al validar una contraseña | componentes.spec.jsx |
+| T16 | Mostrar/ocultar mensaje condicional de búsqueda sin resultados | componentes.spec.jsx |
+| T17 | Props de etiqueta y callback en botón **definido dentro del test** | componentes.spec.jsx |
+| T18 | Mostrar error de inicio de sesión ante credenciales inválidas | componentes.spec.jsx |
 
-## Pendientes de evidencia y pruebas exploratorias
+**Limitación de T17:** demuestra uso de props y `onClick` en React, pero no prueba un componente reutilizable real del proyecto. Se recomienda extraer un `Boton` de producción o realizar la prueba sobre un botón existente.
 
-1. Adjuntar captura del terminal con resultados de Jasmine/Karma.
-2. Adjuntar capturas del resumen de `coverage/html/index.html`.
-3. Probar manualmente login, reservas, cancelación, checkout simulado, panel admin y versión móvil.
-4. Documentar defectos encontrados, medidas correctivas y fecha de ejecución.
-5. Integración Android/web y backend real: **no implementados**.
+## 4. Relación con los criterios docentes (página 11)
 
-**Importante:** Los test no han sido ejecutados y verificados en este entorno; se necesita una instalación de dependencias y Chrome disponible en el equipo donde se ejecuten.
+| Criterio | Evidencia | Estado |
+|---|---|---|
+| Renderizado de listas | T13 | Evidenciado parcialmente (verifica elementos representativos, no cuenta los siete) |
+| Renderizado condicional | T16, T18 | Evidenciado |
+| Props y callback | T17 | Parcial: componente de prueba, no componente del producto |
+| State, entrada de texto | T14, T15 | Evidenciado |
+| Eventos, clic | T17, T18 | Evidenciado |
+| CRUD y lógica | T06–T12 | Evidenciado |
 
+## 5. Pruebas manuales pendientes de registrar
 
-## Corrección carga Karma (26-10-2026)
-Se reemplazó el patrón de pruebas `tests/**/*.spec.{js,jsx}` (incompatible con el descubrimiento de archivos de Karma en esta configuración) por un único `tests/index.js` que importa los archivos `.spec.js` y `.spec.jsx`. Se declararon explícitamente los adaptadores `jasmine` y `webpack`.
+| ID | Flujo | Procedimiento sugerido | Resultado esperado | Evidencia |
+|---|---|---|---|---|
+| M01 | Registro | Registrar usuario con nombre vacío y contraseña inválida y luego válida | Impide datos inválidos y permite válidos | Pendiente |
+| M02 | Acceso | Ingresar y cerrar sesión | Cambia sesión y navegación | Pendiente |
+| M03 | Reserva | Reservar profesional/fecha/hora libre | Genera cita visible en Mis Citas | Pendiente |
+| M04 | Colisión | Intentar misma fecha/hora/profesional | Rechaza duplicado | Pendiente |
+| M05 | Cancelar cita | Cancelar una cita existente | Actualiza estado | Pendiente |
+| M06 | Checkout | Simular pago exitoso y rechazado | Muestra ambas pantallas de resultado | Pendiente |
+| M07 | Administrador | Crear, editar y eliminar servicio | Catálogo cambia sin recargar | Pendiente |
+| M08 | Responsive | Probar 375px, 768px y 1366px | Sin desbordes ni controles inaccesibles | Pendiente |
+| M09 | Persistencia | Recargar página y recuperar cita | Datos se conservan en navegador | Pendiente |
 
-Comandos PowerShell:
+## 6. Evidencias para el informe final
+
+- Captura de consola con `TOTAL: 18 SUCCESS` y resumen de cobertura.
+- Captura de `coverage/html/index.html` y detalle de archivos cubiertos.
+- Capturas de los flujos manuales M01–M09 con fecha, evaluador y observaciones.
+- Enlace al commit de GitHub donde constan los archivos de pruebas y la configuración de Karma.
+
+## 7. Análisis de calidad y acciones siguientes
+
+Las 18 pruebas de la suite pasan; no hay defectos abiertos **dentro de esos casos concretos**. Los resultados no certifican integridad de sesión, flujo administrativo completo, pasarela real ni sincronización multiusuario. La cobertura de ramas (69,41 %) y de funciones (68,18 %) revela oportunidades de ampliar casos límite. Se recomienda probar primero permisos administrativos, reserva/cancelación y errores de pago. No se fija un umbral artificial: la pauta no establece mínimo porcentual.
+
+## 8. Reproducción
+
 ```powershell
 npm.cmd install
-npm.cmd run test:coverage
+npm.cmd test -- --coverage
 ```
-La salida HTML se genera en `coverage/html/index.html`. Alternativamente, `npm.cmd test -- --coverage` ejecuta las mismas pruebas con cobertura. `npm.cmd test --coverage` puede emitir una advertencia de npm 11+ porque falta el separador `--`.
 
-**Importante:** una configuración lista para ejecutar no demuestra que las pruebas aprueben. Registrar resultados reales y porcentajes tras ejecutar localmente.
-
-
-## Actualización de revisión (26-10-2026)
-
-Se corrigió la transformación JSX en Karma mediante Babel con `runtime: automatic`, se añadieron pruebas de renderizado condicional, props/eventos, errores de inicio de sesión y casos límite de agenda. **Pendiente:** ejecutar de nuevo la suite y reemplazar cualquier resultado anterior por cifras verificadas del ZIP actual. En la ejecución anterior del usuario se observaron 9/12 pruebas aprobadas; esos porcentajes no representan el resultado de esta nueva versión.
+Abrir `coverage/html/index.html` para el informe HTML. Opcional: `npm.cmd run test:coverage`, si la entrada está definida en `package.json`.

@@ -35,3 +35,26 @@ Sin backend ni pasarela real, no hay sincronización con Android, autenticación
 3. Repetir fecha/hora de profesional y verificar indisponibilidad.
 4. Administrador añade, edita y elimina un servicio; catálogo se actualiza sin recarga.
 5. Ejecutar `npm test`, corregir fallos y documentar evidencias con capturas para defensa.
+
+
+## Matriz de trazabilidad para Evaluación 2
+
+| Pauta | Implementación | Comprobación / pendiente |
+|---|---|---|
+| React y componentes | `src/pages`, `src/components`, `src/context` | Verificar organización por responsabilidad |
+| Datos simulados + CRUD | `src/data/semillas.js`, `src/data/almacen.js` | T06–T12 |
+| Persistencia | `localStorage`, contexto React | M09 y comprobación de actualización |
+| Bootstrap responsive | CSS + Bootstrap | M08 pendiente |
+| Vistas adicionales | Catálogo, reserva, checkout, resultados y administración | M03, M06, M07 pendientes |
+| Búsqueda / formularios | Catálogo y Acceso | T14–T16, T18 |
+| Jasmine + Karma | `karma.conf.cjs`, `tests/` | 18/18 aprobadas según consola del usuario |
+| Renderizado, props, estado, eventos | `tests/componentes.spec.jsx` | Props sobre componente real todavía mejorable |
+| Presentación backend/frontend | No existe integración backend real | Acordar con docente alcance o implementarla |
+
+## Equivalencia del negocio respecto del ejemplo de tienda
+
+El documento docente usa *productos, carrito, compra y envío* como caso guía. SanaEsencia, un servicio de atención, adapta estos conceptos a *especialidades, agenda/reserva, checkout simulado y comprobante*. No existe envío físico. La aceptación docente de esta equivalencia debe confirmarse expresamente; tampoco existe blog identificado en la versión revisada.
+
+## Estado de verificación (26-10-2026)
+
+Se reportó ejecución exitosa de 18 de 18 tests. Las verificaciones manuales de interfaz, responsive, administración y checkout aún necesitan evidencias. El backend no está conectado; `localStorage` es una simulación académica, no una base de datos compartida con Android. Las credenciales guardadas localmente carecen de seguridad adecuada para producción.
